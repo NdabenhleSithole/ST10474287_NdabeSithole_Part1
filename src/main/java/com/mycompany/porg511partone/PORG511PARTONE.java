@@ -96,19 +96,23 @@ public class PORG511PARTONE {
 
         System.out.println("\nUser registered successfully!");
 
-        // LOGIN SECTION 
-        System.out.println("\nLogin ");
+        // ===== LOGIN SECTION =====
+        System.out.println("\n=== Login ===");
 
-        System.out.print("Enter username: ");
-        String enteredUserName = input.nextLine();
+        while (true) {
 
-        System.out.print("Enter password: ");
-        String enteredPassword = input.nextLine();
+            System.out.print("Enter username: ");
+            String enteredUserName = input.nextLine();
 
-        if (enteredUserName.equals(userName) && enteredPassword.equals(password)) {
-            System.out.println("Welcome " + firstName + " " + lastName + ", it is great to see you again!");
-        } else {
-            System.out.println("Username or password incorrect.");
+            System.out.print("Enter password: ");
+            String enteredPassword = input.nextLine();
+
+            if (enteredUserName.equals(userName) && enteredPassword.equals(password)) {
+                System.out.println("Welcome " + firstName + " " + lastName + ", it is great to see you again!");
+                break; // exit loop when login is correct
+            } else {
+                System.out.println("Username or password incorrect. Please try again.");
+            }
         }
 
         input.close();
