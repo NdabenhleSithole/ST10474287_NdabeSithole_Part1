@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.mycompany.porg511partone;
 
 import java.util.Scanner;
@@ -96,8 +95,8 @@ public class PORG511PARTONE {
 
         System.out.println("\nUser registered successfully!");
 
-        // ===== LOGIN SECTION =====
-        System.out.println("\n=== Login ===");
+        // LOGIN SECTION 
+        System.out.println("\nLogin ");
 
         while (true) {
 
@@ -108,8 +107,79 @@ public class PORG511PARTONE {
             String enteredPassword = input.nextLine();
 
             if (enteredUserName.equals(userName) && enteredPassword.equals(password)) {
+
                 System.out.println("Welcome " + firstName + " " + lastName + ", it is great to see you again!");
-                break; // exit loop when login is correct
+
+                // QUICKCHAT 
+                System.out.println("\nWelcome to QuickChat.");
+
+                System.out.print("How many messages would you like to send? ");
+                int totalToSend = Integer.parseInt(input.nextLine());
+
+                int sentCount = 0;
+
+                while (true) {
+
+                    System.out.println("\n QUICKCHAT MENU");
+                    System.out.println("1. Send Messages");
+                    System.out.println("2. Show recently sent messages");
+                    System.out.println("3. Quit");
+
+                    System.out.print("Choose an option: ");
+                    int choice = Integer.parseInt(input.nextLine());
+
+                    //  SEND MESSAGE 
+                    if (choice == 1) {
+
+                        if (sentCount >= totalToSend) {
+                            System.out.println("You have already entered all your messages.");
+                            continue;
+                        }
+
+                        System.out.print("Enter recipient number: ");
+                        String recipient = input.nextLine();
+
+                        System.out.print("Enter your message: ");
+                        String userMessage = input.nextLine();
+
+                        PROG5111PARTTWO msg = new PROG5111PARTTWO(sentCount, recipient, userMessage);
+
+                        if (!msg.checkRecipientCell()) {
+
+                            System.out.println("Cell phone number incorrectly formatted.");
+
+                        } else {
+
+                            System.out.println(msg.sentMessage());
+
+                            System.out.println("\n===== MESSAGE DETAILS =====");
+                            System.out.println(msg.printMessages());
+
+                            sentCount++;
+                        }
+
+                    } // ===== SHOW RECENT =====
+                    else if (choice == 2) {
+
+                        System.out.println("Coming soon");
+
+                    } // ===== QUIT =====
+                    else if (choice == 3) {
+
+                        System.out.println("\nTotal messages sent: "
+                                + PROG5111PARTTWO.returnTotalMessages());
+
+                        System.out.println("Goodbye!");
+
+                        break;
+                    } //  INVALID 
+                    else {
+
+                        System.out.println("Invalid option.");
+                    }
+                }
+
+                break;
             } else {
                 System.out.println("Username or password incorrect. Please try again.");
             }
