@@ -158,12 +158,12 @@ public class PORG511PARTONE {
                             sentCount++;
                         }
 
-                    } // ===== SHOW RECENT =====
+                    } //  SHOW RECENT 
                     else if (choice == 2) {
 
                         System.out.println("Coming soon");
 
-                    } // ===== QUIT =====
+                    } //  QUIT 
                     else if (choice == 3) {
 
                         System.out.println("\nTotal messages sent: "
